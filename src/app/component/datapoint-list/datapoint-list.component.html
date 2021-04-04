@@ -1,0 +1,14 @@
+<div>
+  <span
+  *ngFor='let datapointId of datapoints | async'>
+      {{ datapointId }}
+    </span>
+</div>
+<mwl-gauge
+  [max]="100"
+  [dialStartAngle]="-90"
+  [dialEndAngle]="-90.001"
+  [value]="usage"
+  [animated]="true"
+  [animationDuration]="1">
+</mwl-gauge>
