@@ -1,7 +1,7 @@
-import { Ramstat } from './ramstat.model';
+import { RamStat } from './ramstat.model';
 
 describe('Ramstat', () => {
   it('should create an instance', () => {
-    expect(new Ramstat()).toBeTruthy();
+    expect(new RamStat()).toBeTruthy();
   });
 });

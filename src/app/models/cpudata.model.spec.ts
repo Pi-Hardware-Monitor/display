@@ -1,7 +1,7 @@
-import { Cpudata } from './cpudata.model';
+import { CpuData } from './cpudata.model';
 
 describe('Cpudata', () => {
   it('should create an instance', () => {
-    expect(new Cpudata()).toBeTruthy();
+    expect(new CpuData()).toBeTruthy();
   });
 });
