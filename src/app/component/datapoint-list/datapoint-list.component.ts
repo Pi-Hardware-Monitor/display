@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {DatapointService} from '../../services/datapoint.service';
-import {Datapoint} from '../../models/datapoint.model';
+import {RamStat} from '../../models/ramstat.model';
+import {CpuData} from '../../models/cpudata.model';
+import {GpuData} from '../../models/gpu-data.model';
 
 @Component({
   selector: 'app-datapoint-list',
@@ -9,16 +11,17 @@ import {Datapoint} from '../../models/datapoint.model';
   styleUrls: ['./datapoint-list.component.scss']
 })
 export class DatapointListComponent implements OnInit {
-  datapoints: Observable<string[]>;
-  cpuUsage: Observable<Datapoint>;
-  usage = 90;
-  constructor(private datapointService: DatapointService) { }
+  cpuStats: Observable<CpuData>;
+  ramStats: Observable<RamStat>;
+  gpuStats: Observable<GpuData>;
 
-  ngOnInit(): void{
-    this.datapoints = this.datapointService.datapoints;
-    this.cpuUsage = this.datapointService.cpuUsage;
-    this.cpuUsage.pipe().subscribe(data => {console.log(data);
-                                            this.usage = data.value; });
+  constructor(private datapointService: DatapointService) {
+  }
+
+  ngOnInit(): void {
+    this.cpuStats = this.datapointService.cpuStatistics;
+    this.ramStats = this.datapointService.ramStatistics;
+    this.gpuStats = this.datapointService.gpuStatistics;
   }
 
 }

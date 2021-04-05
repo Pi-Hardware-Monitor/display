@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { DatapointListComponent } from './component/datapoint-list/datapoint-list.component';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-import {GaugeModule} from 'angular-gauge';
+import {NgxGaugeModule} from 'ngx-gauge';
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -18,7 +18,7 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
   imports: [
     BrowserModule,
     SocketIoModule.forRoot(config),
-    GaugeModule.forRoot()
+    NgxGaugeModule
   ],
   providers: [
   ],

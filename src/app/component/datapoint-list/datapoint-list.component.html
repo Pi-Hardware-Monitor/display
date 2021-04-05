@@ -1,14 +1,30 @@
-<div>
-  <span
-  *ngFor='let datapointId of datapoints | async'>
-      {{ datapointId }}
-    </span>
-</div>
-<mwl-gauge
-  [max]="100"
-  [dialStartAngle]="-90"
-  [dialEndAngle]="-90.001"
-  [value]="usage"
-  [animated]="true"
-  [animationDuration]="1">
-</mwl-gauge>
+<ngx-gauge [type]="'arch'"
+           [value]="(cpuStats | async)?.usage"
+           [label]="'CPU-Usage'"
+           [append]="'%'">
+</ngx-gauge>
+<ngx-gauge [type]="'arch'"
+           [value]="(cpuStats | async)?.temp | number: '3.1-1'"
+           [label]="'CPU-Temperature'"
+           [append]="'°'">
+</ngx-gauge>
+<ngx-gauge [type]="'arch'"
+           [value]="(ramStats | async)?.usage"
+           [label]="'RAM-Usage'"
+           [append]="'%'">
+</ngx-gauge>
+<ngx-gauge [type]="'arch'"
+           [value]="(gpuStats | async)?.usage"
+           [label]="'CPU-Usage'"
+           [append]="'%'">
+</ngx-gauge>
+<ngx-gauge [type]="'arch'"
+           [value]="(gpuStats | async)?.temp | number: '3.1-1'"
+           [label]="'CPU-Temperature'"
+           [append]="'°'">
+</ngx-gauge>
+<ngx-gauge [type]="'arch'"
+           [value]="(gpuStats | async)?.memory"
+           [label]="'RAM-Usage'"
+           [append]="'%'">
+</ngx-gauge>
