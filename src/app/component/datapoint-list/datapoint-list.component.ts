@@ -15,6 +15,13 @@ export class DatapointListComponent implements OnInit {
   ramStats: Observable<RamStat>;
   gpuStats: Observable<GpuData>;
 
+  displayHeight = 480;
+  displayWidth = 800;
+  numberOfRows = 2;
+  numberOfColumns = 3;
+
+  gaugeSize = this.displayWidth / this.numberOfColumns;
+
   constructor(private datapointService: DatapointService) {
   }
 
