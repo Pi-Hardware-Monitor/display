@@ -25,19 +25,19 @@
     <div class="col-sm">
       <ngx-gauge [type]="'arch'"
                  [value]="(gpuStats | async)?.usage"
-                 [label]="'CPU-Usage'"
+                 [label]="'GPU-Usage'"
                  [append]="'%'"
                  [size]="gaugeSize">
       </ngx-gauge>
       <ngx-gauge [type]="'arch'"
                  [value]="(gpuStats | async)?.temp | number: '3.1-1'"
-                 [label]="'CPU-Temperature'"
+                 [label]="'GPU-Temperature'"
                  [append]="'°'"
                  [size]="gaugeSize">
       </ngx-gauge>
       <ngx-gauge [type]="'arch'"
                  [value]="(gpuStats | async)?.memory"
-                 [label]="'RAM-Usage'"
+                 [label]="'VRAM-Usage'"
                  [append]="'%'"
                  [size]="gaugeSize">
       </ngx-gauge>
