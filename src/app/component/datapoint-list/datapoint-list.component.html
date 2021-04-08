@@ -1,19 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <ngx-gauge [type]="'arch'"
+      <ngx-gauge type="arch"
+                 thick="13"
+                 cap="round"
                  [value]="(cpuStats | async)?.usage"
                  [label]="'CPU-Usage'"
                  [append]="'%'"
                  [size]="gaugeSize">
       </ngx-gauge>
-      <ngx-gauge [type]="'arch'"
+      <ngx-gauge type="arch"
+                 thick="13"
+                 cap="round"
                  [value]="(cpuStats | async)?.temp | number: '3.1-1'"
                  [label]="'CPU-Temperature'"
-                 [append]="'°'"
+                 [thresholds]="temperatureThreshold"
+                 [append]="'°C'"
                  [size]="gaugeSize">
       </ngx-gauge>
-      <ngx-gauge [type]="'arch'"
+      <ngx-gauge type="arch"
+                 thick="13"
+                 cap="round"
                  [value]="(ramStats | async)?.usage"
                  [label]="'RAM-Usage'"
                  [append]="'%'"
@@ -23,19 +30,26 @@
   </div>
   <div class="row">
     <div class="col-sm">
-      <ngx-gauge [type]="'arch'"
+      <ngx-gauge type="arch"
+                 thick="13"
+                 cap="round"
                  [value]="(gpuStats | async)?.usage"
                  [label]="'GPU-Usage'"
                  [append]="'%'"
                  [size]="gaugeSize">
       </ngx-gauge>
-      <ngx-gauge [type]="'arch'"
+      <ngx-gauge type="arch"
+                 thick="13"
+                 cap="round"
                  [value]="(gpuStats | async)?.temp | number: '3.1-1'"
                  [label]="'GPU-Temperature'"
-                 [append]="'°'"
+                 [thresholds]="temperatureThreshold"
+                 [append]="'°C'"
                  [size]="gaugeSize">
       </ngx-gauge>
-      <ngx-gauge [type]="'arch'"
+      <ngx-gauge type="arch"
+                 thick="13"
+                 cap="round"
                  [value]="(gpuStats | async)?.memory"
                  [label]="'VRAM-Usage'"
                  [append]="'%'"

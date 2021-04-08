@@ -20,7 +20,12 @@ export class DatapointListComponent implements OnInit {
   numberOfRows = 2;
   numberOfColumns = 3;
 
-  gaugeSize = this.displayWidth / this.numberOfColumns;
+  gaugeSize = this.displayWidth / this.numberOfColumns - 30;
+
+  temperatureThreshold = {
+    0: {color: '#009688'},
+    80: {color: 'red'}
+  };
 
   constructor(private datapointService: DatapointService) {
   }
