@@ -1,18 +1,12 @@
-FROM node:14
+FROM node:alpine AS builder
 
-# set working directory
 WORKDIR /app
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+COPY . .
 
-# install and cache app dependencies
-COPY package.json /app/package.json
-RUN npm install
-RUN npm install -g @angular/cli@11.2.7
+RUN npm install && npm run build
 
-# add app
-COPY . /app
+FROM nginx:alpine
 
-# start app
-CMD ng serve --host 0.0.0.0
+COPY --from=builder /app/dist/* /usr/share/nginx/html/
+
